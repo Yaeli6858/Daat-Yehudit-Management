@@ -1,4 +1,5 @@
 
+
 # DY — Daat Yehudit
 
 A full‑stack JavaScript application with a React frontend (client/) and an Express backend (server/). This repository is organized to separate concerns: frontend UI, backend API, configuration, background tasks/cron jobs, and mail/integration services. The structure is intended to make maintenance and feature additions straightforward.
