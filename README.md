@@ -141,7 +141,7 @@ Before running this application, ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Devora9249/Daat-Yehudit-Management
+   git clone https://github.com/yaeli6858/Daat-Yehudit-Management
    cd Daat-Yehudit-Management
    ```
 
