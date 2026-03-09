@@ -17,7 +17,6 @@ A comprehensive full-stack web application for managing the financial and admini
 - [Tech Stack](#tech-stack)
 - [API Overview](#api-overview)
 - [Database](#database)
-<!-- - [Authentication & Authorization](#authentication--authorization) -->
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
@@ -33,51 +32,50 @@ Daat Yehudit is a full-stack management system built for the internal operations
 ---
 
 ## Features
-**Donor Management**:
+  **Donor Management**:
   - Comprehensive donor profiles with personal information, contact details, and donation history
   - memorial tracking with automated reminders for memorial dates
   - Donation recording with date, amount, and purpose tracking
   - Donor categorization and search functionality
 
-- **Avrechim Tracking**:
+  **Avrechim Tracking**:
   - Detailed scholar profiles including personal information and family details
   - Activity status management (active/inactive scholars)
   - Scholarship (milga) assignment and tracking
   - Excel export for detailed avrechim reports
 
-- **Debt Management**:
+  **Debt Management**:
   - Track both given (loans to others) and taken (loans from others) debts
   - Historical debt records with payment schedules
 
 
-- **Expense Tracking**:
+  **Expense Tracking**:
   - Date and amount tracking with detailed descriptions
 
-- **Financial Summaries**:
-- Comprehensive expense and income table including various expenses, scholarships and income - donations,
-- Filtering by donation type and payment method.
+  **Financial Summaries**:
+  - Comprehensive expense and income table including various expenses, scholarships and income - donations,
+  - Filtering by donation type and payment method.
 
 
-- **Milgot Management**:
-- Distribution of scholarships in several ways:
-- One scholarship for a specific scholar
-- Update a uniform scholarship for all scholars
-- Update scholarships for all scholars with details and a different amount for each
+  **Milgot Management**:
+  - Distribution of scholarships in several ways:
+  - One scholarship for a specific scholar
+  - Update a uniform scholarship for all scholars
+  - Update scholarships for all scholars with details and a different amount for each
 
-- **Link Management**:
+  **Link Management**:
   - Centralized storage of important organizational links
 
-- **Email Notifications**:
+  **Email Notifications**:
   - Automated memorial reminders to donors
   - Birthday notifications for donors
   - Scheduled email delivery system
 
-- **Data Export**:
+  **Data Export**:
   - Excel export for donor lists with complete contact information
   - scholars data export with scholarship details
 
-
-- **Responsive UI**:
+  **Responsive UI**:
   - Modern Material-UI design with Hebrew RTL support
   - Intuitive navigation with organized component structure
   - Form validation and user-friendly error handling
@@ -86,7 +84,6 @@ Daat Yehudit is a full-stack management system built for the internal operations
 ---
 
 ## Architecture
-
 The application follows a modular full-stack architecture:
 
 - **Frontend**: React single-page application with component-based structure
