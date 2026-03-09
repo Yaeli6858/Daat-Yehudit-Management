@@ -1,10 +1,32 @@
-
-
 # Daat Yehudit Management System
+
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express%205-339933?style=flat&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%208-47A248?style=flat&logo=mongodb)
+![MUI](https://img.shields.io/badge/MUI-7.3.4-007FFF?style=flat&logo=mui)
 
 ## Overview
 
 Daat Yehudit is a comprehensive full-stack web application designed for managing financial and administrative operations of a religious organization. The system handles donor management, avrechim (scholars) tracking, debt management, expenses, and various financial summaries. It provides a user-friendly interface for administrators to oversee donations, yahrzeits, milgot (scholarships), and organizational links.
+
+
+## Table of Contents
+
+- [Features](#features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [API Overview](#api-overview)
+- [Database](#database)
+- [Authentication & Authorization](#authentication--authorization)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [UI Design](#ui-design)
+- [UI Screenshots](#ui-screenshots)
+
+---
+
+
 
 ## Features
 
@@ -102,8 +124,8 @@ Before running this application, ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd DaatYehudit
+   git clone https://github.com/yaeli6858/Daat-Yehudit-Management
+   cd Daat-Yehudit-Management
    ```
 
 2. **Install server dependencies**
@@ -122,10 +144,13 @@ Before running this application, ensure you have the following installed:
    Create a `.env` file in the server directory with:
    ```
    PORT=1111
-   MONGODB_URI=mongodb://localhost:27017/daatyehudit
+   DATABASE=mongodb://localhost:27017/daatyehudit
    JWT_SECRET=your-secret-key
-   EMAIL_USER=your-email@gmail.com
-   EMAIL_PASS=your-email-password
+   MAIL_HOST=smtp.example.com
+   MAIL_PORT=587
+   MAIL_USER=your-email@gmail.com
+   MAIL_PASS=your-email-password
+   EMAIL_RECIPIENT=recipient@example.com
    ```
 
 5. **Start MongoDB**
@@ -181,109 +206,23 @@ DaatYehudit/
 └── README.md                        # This file
 ```
 
+## UI Design
+
+The entire application theme is defined in a single file: `client/src/MainDesign/theme.js`, using Material-UI's `createTheme`. This centralized approach makes it easy to update the look and feel of the whole app from one place.
+
+**Color palette:** The design uses deep red (`#b71c1c`) as the primary brand color, with dark red (`#7f0000`) for hover states and headings, against a clean light gray background (`#f5f5f5`) and white cards.
+
+**Typography:** All text uses the **Rubik** font (with Arial as fallback), which gives the interface a modern, rounded feel well-suited for Hebrew content. Headings are bold and centered in the brand red color.
+
+**Custom component variants:**
+- Buttons come in several variants: `addButton`, `miniButton`, `activeButton`, and `iconButton` — each tailored for a different action context
+- Cards support `donorCard` and `linkCard` variants with hover animations (a smooth upward lift effect)
+- Tables have styled headers with a soft red background (`#ffe6e6`) and centered text throughout
+- Dialogs are rounded with a subtle shadow, sized at 25vw for a focused modal experience
+- TextFields support a `descriptionField` variant with a scrollable, resizable textarea
+
+**RTL-ready:** The font choice (Rubik) and centered layout patterns are well-suited for Hebrew right-to-left content across all pages.
+
 ## UI Screenshots
 
-*Note: Screenshots of the application interface would be included here. The application features a modern Material-UI interface with responsive design for managing donors, avrechim, debts, and financial summaries.*
-
-- Dashboard with navigation and key metrics
-- Donor management interface with add/edit forms
-- Avrechim listing with status indicators
-- Financial summary reports with filtering options
-- Debt tracking dashboard
-- Expense entry forms
-
-For actual screenshots, please run the application locally or contact the development team.
-  - models/ — data models
-  - routes/ — Express route definitions
-  - cron/ — scheduled tasks
-  - MailService/ — email helpers
-  - .env — environment variables (do not commit)
-- .gitignore, README.md, root package.json
-
-## Prerequisites
-- Node.js (LTS recommended)
-- npm or yarn
-- Database (e.g., MongoDB, PostgreSQL) configured as in server/config/dbConn.js
-- Git
-
-## Local setup — install
-1. Clone the repo:
-   git clone <repo-url>
-2. Install server deps:
-   cd server
-   npm install
-3. Install client deps:
-   cd ../client
-   npm install
-
-## Environment variables (.env.example)
-Create server/.env with the keys used by server/config/dbConn.js and MailService. Example (do not commit secrets):
-
-PORT=5000
-DB_URL=<your-database-connection-string>
-
-MAIL_HOST=smtp.example.com
-MAIL_PORT=587
-MAIL_USER=you@example.com
-MAIL_PASS=<email-aplication-password>
-NODE_ENV=development
-
-
-## Run — development
-Start server:
-cd server
-npm run dev
-(Or node server.js depending on scripts in server/package.json.)
-
-Start client:
-cd client
-npm start
-
-
-## API & data model notes
-- Inspect server/routes/ for available endpoints and mapping to controllers.
-- Document API endpoints in routes.md or use OpenAPI/Swagger for machine-readable docs.
-- Keep controllers thin; extract business logic to services where beneficial.
-
-## Background jobs & MailService
-- server/cron contains scheduled tasks — determine if they should run in a separate worker process in production.
-- server/MailService centralizes mail sending logic. Use environment variables for credentials and avoid committing secrets.
-
-## Testing & CI
-- Add tests under server/tests and client/src/__tests__.
-- Example scripts:
-  - "test:server": runs backend tests
-  - "test:client": runs frontend tests
-  - "lint": runs ESLint across repo
-- Add GitHub Actions to run linters and tests on PRs.
-
-## Build & deployment notes
-- Containerize with Docker for reproducible deployments.
-- Provide an .env.example and keep secrets out of VCS.
-- Add a health-check endpoint (e.g., GET /health) that verifies DB connectivity.
-- Implement graceful shutdown in server.js to close DB connections on SIGTERM.
-- Consider blue/green or rolling deployments and add readiness/liveness probes if deploying to Kubernetes.
-
-## Troubleshooting
-- Check server console logs for stack traces.
-- Use browser devtools network tab for API errors.
-- Confirm environment variables and DB connectivity.
-- Use curl/Postman to test endpoints directly.
-- Check server/cron logs separately if scheduled tasks misbehave.
-
-## Contributing
-- Fork, create a feature branch, and submit a pull request with a clear description.
-- Add tests for new features and adhere to linting rules.
-- Run the test and lint scripts before submitting PRs.
-
-## Next improvements (prioritized)
-1. Add server/.env.example and remove any committed secrets.
-2. Add ESLint, Prettier, and Husky with lint-staged.
-3. Add unit and integration tests for critical backend logic and key frontend components.
-4. Add API documentation (OpenAPI/Swagger).
-5. Add CI pipeline (GitHub Actions) to run lint and tests on PRs.
-6. Add a deployment guide (Docker + example GitHub Actions workflow).
-7. Add monitoring/alerting for production (logs, health checks, uptime).
-
-## License
-Add your preferred license (MIT, Apache-2.0, etc.) and include a LICENSE file.
+<!-- Add screenshots here -->
