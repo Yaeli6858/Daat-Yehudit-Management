@@ -5,9 +5,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%208-47A248?style=flat&logo=mongodb)
 ![MUI](https://img.shields.io/badge/MUI-7.3.4-007FFF?style=flat&logo=mui)
 
-## Overview
-
-Daat Yehudit is a comprehensive full-stack web application designed for managing financial and administrative operations of a religious organization. The system handles donor management, avrechim (scholars) tracking, debt management, expenses, and various financial summaries. It provides a user-friendly interface for administrators to oversee donations, yahrzeits, milgot (scholarships), and organizational links. The application is fully in Hebrew with RTL support.
+A comprehensive full-stack web application for managing the financial and administrative operations of a religious organization — covering donor tracking, avrechim (scholars) management, scholarships, debts, expenses, and automated email reminders. The application is fully in Hebrew with RTL support.
 
 ## Table of Contents
 
@@ -25,6 +23,10 @@ Daat Yehudit is a comprehensive full-stack web application designed for managing
 - [UI Screenshots](#ui-screenshots)
 
 ---
+
+## Overview
+
+Daat Yehudit is a comprehensive full-stack web application designed for managing financial and administrative operations of a religious organization. The system handles donor management, avrechim (scholars) tracking, debt management, expenses, and various financial summaries. It provides a user-friendly interface for administrators to oversee donations, yahrzeits, milgot (scholarships), and organizational links. The application is fully in Hebrew with RTL support.
 
 ## Features
 
