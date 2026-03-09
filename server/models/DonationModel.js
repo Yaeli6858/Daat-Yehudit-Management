@@ -1,3 +1,4 @@
+const e = require('express');
 const mongoose = require('mongoose');
 
 const DonationSchema = new mongoose.Schema({
@@ -5,7 +6,7 @@ const DonationSchema = new mongoose.Schema({
     // תרומה בפועל
     date: { type: Date, required: true },
     amount: { type: Number, required: true },
-    paymentMethod: { type: String, required: true },
+    paymentMethod: { type: String, required: true, enum: ["מזומן", "נדרים פלוס", "Jgive", "חשבון בנק הלאומי", "חשבון דעת יהודית"] },
 
     // תדירות
     frequency: { type: String, enum: ["once", "monthly"], required: true },

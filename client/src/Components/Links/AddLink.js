@@ -108,7 +108,6 @@ export default function AddLink({ onAdd }) {
                                     label="תיאור אתר"
                                     value={description}
                                     onChange={e => setDescription(e.target.value)}
-                                    required
                                     type="text"
                                 />
                             </Box>

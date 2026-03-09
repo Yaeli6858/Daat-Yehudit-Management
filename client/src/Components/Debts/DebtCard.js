@@ -147,9 +147,9 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function FormDialog({ debtDetails, setOpen, open, onChange }) {
 
-  const [isEditing, setIsEditing] = useState(false); // ⭐ מצב עריכה/תצוגה
+  const [isEditing, setIsEditing] = useState(false); 
   const [alert, setAlert] = useState(null);
-  // const [debtData, setDebtData] = useState(debtDetails);
+  const [debtData, setDebtData] = useState(debtDetails);
 
   const {
     register,
@@ -195,9 +195,10 @@ export default function FormDialog({ debtDetails, setOpen, open, onChange }) {
     }
   };
 
-  useEffect(() => {
-    reset(debtDetails);
-  }, [debtDetails.reset]);
+useEffect(() => {
+  setDebtData(debtDetails);
+  reset(debtDetails);       
+}, [debtDetails, reset]);
 
   return (
     <React.Fragment>

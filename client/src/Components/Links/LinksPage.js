@@ -44,18 +44,13 @@ const LinksPage = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>מחיקה </TableCell>
-                                <TableCell>תיאור</TableCell>
-                                <TableCell>שם אתר</TableCell>
-                                <TableCell>לוגו</TableCell>
+                                <TableCell>לאתר</TableCell>
                             </TableRow>
                         </TableHead>
                         {linksList.map((link) => (
                             <TableRow>
                                 <TableCell><DeleteDialog deleteFunc={deleteLink} itemId={link._id} /></TableCell>
-                                <TableCell>{link.description}</TableCell>
-                                <TableCell><a href={link.websitelink} target="_blank">{link.websiteName}</a></TableCell>
-                                <TableCell><img src={`${link.websiteName}.png`} alt={link.websiteName} style={{ width: '50px', height: '50px' }} /></TableCell>
-
+                                <TableCell><a href={link.websitelink} target="_blank"><img src={`${link.websiteName}.png`} alt={link.websiteName} style={{ maxWidth: '100px', maxHeight: '50px' }} /></a></TableCell>
                             </TableRow>
                         ))}
                     </Table>

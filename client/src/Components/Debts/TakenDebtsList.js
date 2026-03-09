@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Table, TableBody, TableCell, TableHead, TableRow, Checkbox, } from "@mui/material";
 import DebtCard from "./DebtCard";
+import { useEffect } from "react";
 
 const TakenDebtsList = ({ fields, takenList, onChange, showAll, }) => {
 
@@ -8,9 +9,15 @@ const TakenDebtsList = ({ fields, takenList, onChange, showAll, }) => {
   const [open, setOpen] = React.useState(false);
 
   const openDebtCard = (debt) => {
+    console.log(debt, 'debt');
     setSelectedDebt(debt);
+    console.log(selectedDebt, "selectedDebt");
     setOpen(true);
   };
+
+  useEffect(() => {
+  console.log(selectedDebt, "selectedDebt התעדכן!");
+}, [selectedDebt]);
 
   return (
     <>
@@ -69,12 +76,13 @@ const TakenDebtsList = ({ fields, takenList, onChange, showAll, }) => {
       </Table>
 
       {/* כרטיס פירוט חוב */}
+      {selectedDebt && (
       <DebtCard
         debtDetails={selectedDebt}
         setOpen={setOpen}
         open={open}
         onChange={onChange}
-      />
+      />)}
     </>
 
   )

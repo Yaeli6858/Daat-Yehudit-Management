@@ -22,7 +22,7 @@ export default function Header() {
       }}
     >
       {/* לוגו */}
-      <Box
+      {/* <Box
         component="img"
         src="/logo.jpg"
         alt="לוגו"
@@ -32,7 +32,8 @@ export default function Header() {
           maxWidth: "180px",
           paddingTop: "10px",
         }}
-      />
+      /> */}
+
 
       {/* כותרת */}
       <Box
@@ -44,6 +45,7 @@ export default function Header() {
           color: "#333",
           marginTop: "10px",
           marginBottom: "10px",
+          paddingTop: "40px",
         }}
       >
         אתר ניהול לכולל

@@ -5,7 +5,9 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%208-47A248?style=flat&logo=mongodb)
 ![MUI](https://img.shields.io/badge/MUI-7.3.4-007FFF?style=flat&logo=mui)
 
-A comprehensive full-stack web application for managing the financial and administrative operations of a religious organization — covering donor tracking, avrechim (scholars) management, scholarships, debts, expenses, and automated email reminders. The application is fully in Hebrew with RTL support.
+A comprehensive full-stack web application for managing the financial and administrative operations of a nonprofit [Kollel](https://en.wikipedia.org/wiki/Kollel)  organization — covering donor tracking, avrechim (scholars) management, scholarships, debts, expenses, and automated email reminders. The application is fully in Hebrew with RTL support.
+
+<img src="./screenshots/all gif.gif"/>
 
 ## Table of Contents
 
@@ -15,7 +17,7 @@ A comprehensive full-stack web application for managing the financial and admini
 - [Tech Stack](#tech-stack)
 - [API Overview](#api-overview)
 - [Database](#database)
-- [Authentication & Authorization](#authentication--authorization)
+<!-- - [Authentication & Authorization](#authentication--authorization) -->
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
@@ -26,21 +28,60 @@ A comprehensive full-stack web application for managing the financial and admini
 
 ## Overview
 
-Daat Yehudit is a full-stack management system built for the internal operations of a religious organization. The system centralizes the management of donors and their donation history, avrechim (Torah scholars) and their assigned scholarships, debts, general expenses, and financial summaries — all in one place. It also includes automated email reminders for upcoming yahrzeits and birthdays, and supports data export to Excel. The application is fully in Hebrew with RTL support..
+Daat Yehudit is a full-stack management system built for the internal operations of a religious organization. The system centralizes the management of donors and their donation history, avrechim (Torah scholars) and their assigned scholarships, debts, general expenses, and financial summaries — all in one place. It also includes automated email reminders for upcoming memorials and birthdays, and supports data export to Excel. The application is fully in Hebrew with RTL support..
 
 ---
 
 ## Features
-- **Donor Management**: Add, edit, and track donors with donation history, yahrzeit information, and contact details
-- **Avrechim Tracking**: Manage scholars with personal details, activity status, and associated milgot
-- **Debt Management**: Track given and taken debts with payment status
-- **Expense Tracking**: Record and categorize organizational expenses
-- **Financial Summaries**: Generate comprehensive financial reports with filtering capabilities
-- **Milgot Management**: Handle scholarship assignments and tracking
-- **Link Management**: Store and organize important organizational links
-- **Email Notifications**: Automated email services for reminders and notifications
-- **Data Export**: Export donor and avrechim details to Excel format
-- **Responsive UI**: Modern Material-UI based interface
+**Donor Management**:
+  - Comprehensive donor profiles with personal information, contact details, and donation history
+  - memorial tracking with automated reminders for memorial dates
+  - Donation recording with date, amount, and purpose tracking
+  - Donor categorization and search functionality
+
+- **Avrechim Tracking**:
+  - Detailed scholar profiles including personal information and family details
+  - Activity status management (active/inactive scholars)
+  - Scholarship (milga) assignment and tracking
+  - Excel export for detailed avrechim reports
+
+- **Debt Management**:
+  - Track both given (loans to others) and taken (loans from others) debts
+  - Historical debt records with payment schedules
+
+
+- **Expense Tracking**:
+  - Date and amount tracking with detailed descriptions
+
+- **Financial Summaries**:
+- Comprehensive expense and income table including various expenses, scholarships and income - donations,
+- Filtering by donation type and payment method.
+
+
+- **Milgot Management**:
+- Distribution of scholarships in several ways:
+- One scholarship for a specific scholar
+- Update a uniform scholarship for all scholars
+- Update scholarships for all scholars with details and a different amount for each
+
+- **Link Management**:
+  - Centralized storage of important organizational links
+
+- **Email Notifications**:
+  - Automated memorial reminders to donors
+  - Birthday notifications for donors
+  - Scheduled email delivery system
+
+- **Data Export**:
+  - Excel export for donor lists with complete contact information
+  - scholars data export with scholarship details
+
+
+- **Responsive UI**:
+  - Modern Material-UI design with Hebrew RTL support
+  - Intuitive navigation with organized component structure
+  - Form validation and user-friendly error handling
+  - Consistent design language throughout the application
 
 ---
 
@@ -90,7 +131,7 @@ The application follows a modular full-stack architecture:
 
 The REST API provides endpoints for all major entities:
 
-- `/api/donors` - Donor management (CRUD operations, donations, yahrzeits)
+- `/api/donors` - Donor management (CRUD operations, donations, memorial)
 - `/api/avrechim` - Avrechim management (CRUD, milgot assignment)
 - `/api/expenses` - Expense tracking
 - `/api/debts` - Debt management (given/taken debts)
@@ -114,15 +155,6 @@ The application uses MongoDB as the primary database with the following main col
 - **Milgot**: Scholarship information and assignments
 - **Links**: Organizational links and resources
 - **Users**: User accounts for authentication
-
----
-
-## Authentication & Authorization
-
-- **Registration**: User registration with username, password, name, email, and phone
-- **Login**: JWT-based authentication
-- **Password Security**: bcrypt hashing for secure password storage
-- **Session Management**: JWT tokens for maintaining user sessions
 
 ---
 
@@ -162,7 +194,7 @@ Before running this application, ensure you have the following installed:
    ```
    PORT=1111
    DATABASE=mongodb://localhost:27017/daatyehudit
-   JWT_SECRET=your-secret-key
+
    MAIL_HOST=smtp.example.com
    MAIL_PORT=587
    MAIL_USER=your-email@gmail.com
@@ -230,23 +262,36 @@ DaatYehudit/
 
 ## UI Design
 
-The entire application theme is defined in a single file: `client/src/MainDesign/theme.js`, using Material-UI's `createTheme`. This centralized approach makes it easy to update the look and feel of the whole app from one place.
-
-**Color palette:** The design uses deep red (`#b71c1c`) as the primary brand color, with dark red (`#7f0000`) for hover states and headings, against a clean light gray background (`#f5f5f5`) and white cards.
-
-**Typography:** All text uses the **Rubik** font (with Arial as fallback), which gives the interface a modern, rounded feel well-suited for Hebrew content. Headings are bold and centered in the brand red color.
-
-**Custom component variants:**
-- Buttons come in several variants: `addButton`, `miniButton`, `activeButton`, and `iconButton` — each tailored for a different action context
-- Cards support `donorCard` and `linkCard` variants with hover animations (a smooth upward lift effect)
-- Tables have styled headers with a soft red background (`#ffe6e6`) and centered text throughout
-- Dialogs are rounded with a subtle shadow, sized at 25vw for a focused modal experience
-- TextFields support a `descriptionField` variant with a scrollable, resizable textarea
-
-**RTL-ready:** The font choice (Rubik) and centered layout patterns are well-suited for Hebrew right-to-left content across all pages.
-
----
+The entire application theme is defined in a single file: client/src/MainDesign/theme.js, using Material-UI's createTheme. This centralized approach makes it easy to update the look and feel of the whole app from one place.
 
 ## UI Screenshots
 
-<!-- Add screenshots here -->
+### finacial report
+<img src="./screenshots/finacial report long.png" width="660" />
+
+### links page
+<img src="./screenshots/links.png" width="660" />
+
+
+### milgot page
+<img src="./screenshots/milgot long.png" width="660" />
+
+### avrechim page
+<img src="./screenshots/avrechim.png" width="660" />
+
+### debts page
+<img src="./screenshots/debts.png" width="660" />
+
+### donors page
+<img src="./screenshots/donors.png" width="660" />
+
+### add donor
+<img src="./screenshots/add donor gif.gif" width="660" />
+
+### donor details card
+<img src="./screenshots/donor details.png" width="660" />
+
+### expenses page
+<img src="./screenshots/expenses.png" width="660" />
+
+

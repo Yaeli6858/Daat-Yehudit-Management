@@ -269,7 +269,6 @@ export default function DonorCard({ donor, setOpen, isOpen, onChange }) {
   };
 
 
-  //  פונקציה אחת שממפה ל־API
   const buildDonationPayload = () => {
     const endDate =
       newDonation.frequency === "monthly" && newDonation.duration

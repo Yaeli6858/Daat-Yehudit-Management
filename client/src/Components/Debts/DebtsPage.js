@@ -26,6 +26,8 @@ const DebtsPage = () => {
       setTakenDebts(takenData);      
       setGivenDebts(givenData);
 
+
+      
       
       // setDebtsList(data);
     }
